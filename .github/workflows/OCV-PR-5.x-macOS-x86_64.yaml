@@ -23,10 +23,10 @@ env:
 
 jobs:
   BuildAndTest:
-    runs-on: opencv-cn-lin-x86-64
+    runs-on: opencv-cn-mac-x86-64
     defaults:
       run:
-        shell: bash
+        shell: zsh
     steps:
     - name: Setup infra environment
       if: ${{ github.event.repository.name == 'ci-gha-workflow' }}
@@ -206,7 +206,7 @@ jobs:
     runs-on: opencv-cn-mac-x86-64
     defaults:
       run:
-        shell: bash
+        shell: zsh
     steps:
     - name: Setup infra environment
       if: ${{ github.event.repository.name == 'ci-gha-workflow' }}
