@@ -99,97 +99,97 @@ jobs:
       working-directory: ${{ github.workspace }}/build
     - name: Accuracy:3d
       run: ./bin/opencv_test_3d
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Accuracy:calib
       run: ./bin/opencv_test_calib
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Accuracy:core
       run: ./bin/opencv_test_core
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Accuracy:dnn
       run: ./bin/opencv_test_dnn
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Accuracy:features2d
       run: ./bin/opencv_test_features2d
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Accuracy:flann
       run: ./bin/opencv_test_flann
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Accuracy:gapi
       run: ./bin/opencv_test_gapi
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Accuracy:highgui
       run: ./bin/opencv_test_highgui
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Accuracy:imgcodecs
       run: ./bin/opencv_test_imgcodecs
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Accuracy:imgproc
       run: ./bin/opencv_test_imgproc
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Accuracy:ml
       run: ./bin/opencv_test_ml
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Accuracy:objdetect
       run: ./bin/opencv_test_objdetect
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Accuracy:photo
       run: ./bin/opencv_test_photo
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Accuracy:stereo
       run: ./bin/opencv_test_stereo
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Accuracy:stitching
       run: ./bin/opencv_test_stitching
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Accuracy:video
       run: ./bin/opencv_test_video
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Accuracy:videoio
       run: ./bin/opencv_test_videoio
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Performance:3d
       run: ./bin/opencv_perf_3d --perf_impl=plain --perf_min_samples=1 --perf_force_samples=1 --perf_verify_sanity --skip_unstable=1
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Performance:calib
       run: ./bin/opencv_perf_calib --perf_impl=plain --perf_min_samples=1 --perf_force_samples=1 --perf_verify_sanity --skip_unstable=1
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Performance:core
       run: ./bin/opencv_perf_core --perf_impl=plain --perf_min_samples=1 --perf_force_samples=1 --perf_verify_sanity --skip_unstable=1
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Performance:dnn
       run: ./bin/opencv_perf_dnn --perf_impl=plain --perf_min_samples=1 --perf_force_samples=1 --perf_verify_sanity --skip_unstable=1
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Performance:features2d
       run: ./bin/opencv_perf_features2d --perf_impl=plain --perf_min_samples=1 --perf_force_samples=1 --perf_verify_sanity --skip_unstable=1
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Performance:gapi
       run: ./bin/opencv_perf_gapi --perf_impl=plain --perf_min_samples=1 --perf_force_samples=1 --perf_verify_sanity --skip_unstable=1
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Performance:imgcodecs
       run: ./bin/opencv_perf_imgcodecs --perf_impl=plain --perf_min_samples=1 --perf_force_samples=1 --perf_verify_sanity --skip_unstable=1
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Performance:imgproc
       run: ./bin/opencv_perf_imgproc --perf_impl=plain --perf_min_samples=1 --perf_force_samples=1 --perf_verify_sanity --skip_unstable=1
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Performance:objdetect
       run: ./bin/opencv_perf_objdetect --perf_impl=plain --perf_min_samples=1 --perf_force_samples=1 --perf_verify_sanity --skip_unstable=1
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Performance:photo
       run: ./bin/opencv_perf_photo --perf_impl=plain --perf_min_samples=1 --perf_force_samples=1 --perf_verify_sanity --skip_unstable=1
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Performance:stereo
       run: ./bin/opencv_perf_stereo --perf_impl=plain --perf_min_samples=1 --perf_force_samples=1 --perf_verify_sanity --skip_unstable=1
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Performance:stitching
       run: ./bin/opencv_perf_stitching --perf_impl=plain --perf_min_samples=1 --perf_force_samples=1 --perf_verify_sanity --skip_unstable=1
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Performance:video
       run: ./bin/opencv_perf_video --perf_impl=plain --perf_min_samples=1 --perf_force_samples=1 --perf_verify_sanity --skip_unstable=1
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Performance:videoio
       run: ./bin/opencv_perf_videoio --perf_impl=plain --perf_min_samples=1 --perf_force_samples=1 --perf_verify_sanity --skip_unstable=1
-      working-directory: ${{ github.workspace }}
+      working-directory: ${{ github.workspace }}/build
     - name: Python3
       run: |
         python3 ./test.py --repo ../../../ -v
