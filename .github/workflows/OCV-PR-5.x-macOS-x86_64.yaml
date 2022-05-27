@@ -92,7 +92,7 @@ jobs:
       working-directory: ${{ github.workspace }}
     - name: Configure OpenCV
       run: |
-        cmake -B build -G Ninja ${{ env.EXTRA_CMAKE_OPTIONS }} ${{ env.OPENCV_DOCKER_WORKDIR }}
+        cmake -B build -G Ninja ${{ env.EXTRA_CMAKE_OPTIONS }} opencv
       working-directory: ${{ github.workspace }}
     - name: Build OpenCV
       run: |
@@ -256,7 +256,7 @@ jobs:
       working-directory: ${{ github.workspace }}/opencv_contrib
     - name: Configure OpenCV Contrib
       run: |
-        cmake -B build -G Ninja ${{ env.EXTRA_CMAKE_OPTIONS }} -DOPENCV_EXTRA_MODULES_PATH=/opencv_contrib/modules ${{ env.OPENCV_DOCKER_WORKDIR }}
+        cmake -B build -G Ninja ${{ env.EXTRA_CMAKE_OPTIONS }} -DOPENCV_EXTRA_MODULES_PATH=/opencv_contrib/modules opencv
       working-directory: ${{ github.workspace }}
     - name: Build OpenCV Contrib
       run: |
