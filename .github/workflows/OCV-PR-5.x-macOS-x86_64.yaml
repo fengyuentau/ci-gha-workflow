@@ -9,15 +9,15 @@ on:
   workflow_call:
 
 env:
-  OPENCV_CI_HOME: '$OPENCV_CI_HOME'
+  OPENCV_CI_HOME: '/Users/opencv-cn/Workspace/opencv-ci'
   EXTRA_CMAKE_OPTIONS: '-DBUILD_DOCS=ON -DPYTHON_DEFAULT_EXECUTABLE=/usr/bin/python3 -DOPENCV_DOWNLOAD_PATH=$OPENCV_CI_HOME/binaries_cache -DBUILD_EXAMPLES=ON -DOPENCV_ENABLE_NONFREE=ON'
   PR_AUTHOR: ${{ github.event.pull_request.user.login }}
   PR_AUTHOR_FORK: ${{ github.event.pull_request.head.repo.full_name }}
   SOURCE_BRANCH_NAME: ${{ github.head_ref }}
   TARGET_BRANCH_NAME: ${{ github.base_ref }}
   ANT_HOME: '/usr/share/ant'
-  GIT_CACHE: '$GIT_CACHE'
-  DNN_MODELS: '$DNN_MODELS'
+  GIT_CACHE: '${OPENCV_CI_HOME}/git_cache'
+  DNN_MODELS: '${OPENCV_CI_HOME}/dnn_models'
   PYTHONPATH: '${{ github.workspace }}/build/python_loader:$PYTHONPATH'
   OPENCV_TEST_DATA_PATH: '${{ github.workspace }}/opencv_extra/testdata'
 
@@ -40,6 +40,8 @@ jobs:
         echo "OPENCV_CI_HOME: ${{ env.OPENCV_CI_HOME }}"
         echo "GIT_CACHE : ${{ env.GIT_CACHE }}"
         echo "DNN_MODELS: ${{ env.DNN_MODELS }}"
+        echo "PYTHONPATH: ${{ env.PYTHONPATH }}"
+        echo "OPENCV_TEST_DATA_PATH: ${ env.OPENCV_TEST_DATA_PATH }}"
     - name: Clean
       run: find . -mindepth 1 -delete
       working-directory: ${{ github.workspace }}
