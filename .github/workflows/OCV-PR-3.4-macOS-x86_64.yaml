@@ -9,15 +9,15 @@ on:
   workflow_call:
 
 env:
-  EXTRA_CMAKE_OPTIONS: '-DBUILD_DOCS=ON -DPYTHON_DEFAULT_EXECUTABLE=/usr/bin/python3 -DOPENCV_DOWNLOAD_PATH=$BINARIES_CACHE -DBUILD_EXAMPLES=ON -DOPENCV_ENABLE_NONFREE=ON'
+  OPENCV_CI_HOME: '/Users/opencv-cn/Workspace/opencv-ci'
+  EXTRA_CMAKE_OPTIONS: '-DBUILD_DOCS=ON -DPYTHON_DEFAULT_EXECUTABLE=/usr/bin/python3 -DOPENCV_DOWNLOAD_PATH=/Users/opencv-cn/Workspace/opencv-ci/binaries_cache -DBUILD_EXAMPLES=ON -DOPENCV_ENABLE_NONFREE=ON'
   PR_AUTHOR: ${{ github.event.pull_request.user.login }}
   PR_AUTHOR_FORK: ${{ github.event.pull_request.head.repo.full_name }}
   SOURCE_BRANCH_NAME: ${{ github.head_ref }}
   TARGET_BRANCH_NAME: ${{ github.base_ref }}
   ANT_HOME: '/usr/share/ant'
-  GIT_CACHE: '$GIT_CACHE'
-  DNN_MODELS: '$DNN_MODELS'
-  OPENCV_CI_HOME: '$OPENCV_CI_HOME'
+  GIT_CACHE: '/Users/opencv-cn/Workspace/opencv-ci/git_cache'
+  DNN_MODELS: '/Users/opencv-cn/Workspace/opencv-ci/dnn_models'
   PYTHONPATH: '${{ github.workspace }}/build/python_loader:$PYTHONPATH'
   OPENCV_TEST_DATA_PATH: '${{ github.workspace }}/opencv_extra/testdata'
 
