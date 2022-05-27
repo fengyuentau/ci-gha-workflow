@@ -260,6 +260,5 @@ jobs:
       working-directory: ${{ github.workspace }}
     - name: Build OpenCV Contrib
       run: |
-        cd /build
         ninja
       working-directory: ${{ github.workspace }}/build
