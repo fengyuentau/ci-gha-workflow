@@ -42,6 +42,7 @@ jobs:
         echo "DNN_MODELS: ${{ env.DNN_MODELS }}"
         echo "PYTHONPATH: ${{ env.PYTHONPATH }}"
         echo "OPENCV_TEST_DATA_PATH: ${{ env.OPENCV_TEST_DATA_PATH }}"
+        echo "1"
     - name: Clean
       run: find . -mindepth 1 -delete
       working-directory: ${{ github.workspace }}
