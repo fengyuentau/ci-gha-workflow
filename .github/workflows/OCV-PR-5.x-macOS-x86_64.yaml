@@ -77,7 +77,7 @@ jobs:
       run: |
         DOWNLOAD_MODELS_FILE='download_models.py'
         LATEST_SAVED_HASH=$(cat ${{ env.DNN_MODELS }}/dnn/latest-hash-${{ env.TARGET_BRANCH_NAME }}.txt)
-        LATEST_HASH=$(sha256sum /opencv_extra/testdata/dnn/$DOWNLOAD_MODELS_FILE | awk '{print $1}')
+        LATEST_HASH=$(sha256sum opencv_extra/testdata/dnn/$DOWNLOAD_MODELS_FILE | awk '{print $1}')
         if [[ $LATEST_HASH == $LATEST_SAVED_HASH ]]; then
           echo "DNN models are up to date"
           echo "OPENCV_DNN_TEST_DATA_PATH=${{ env.DNN_MODELS }}" >> $GITHUB_ENV
