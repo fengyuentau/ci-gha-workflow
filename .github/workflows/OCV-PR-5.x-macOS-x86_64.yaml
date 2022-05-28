@@ -37,12 +37,6 @@ jobs:
         echo "PR Author fork: ${{ env.PR_AUTHOR_FORK }}"
         echo "Source branch name: ${{ env.SOURCE_BRANCH_NAME }}"
         echo "Target branch name: ${{ env.TARGET_BRANCH_NAME }}"
-        echo "OPENCV_CI_HOME: ${{ env.OPENCV_CI_HOME }}"
-        echo "GIT_CACHE : ${{ env.GIT_CACHE }}"
-        echo "DNN_MODELS: ${{ env.DNN_MODELS }}"
-        echo "PYTHONPATH: ${{ env.PYTHONPATH }}"
-        echo "OPENCV_TEST_DATA_PATH: ${{ env.OPENCV_TEST_DATA_PATH }}"
-        echo "1"
     - name: Clean
       run: find . -mindepth 1 -delete
       working-directory: ${{ github.workspace }}
