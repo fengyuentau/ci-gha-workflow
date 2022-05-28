@@ -83,10 +83,10 @@ jobs:
           echo "OPENCV_DNN_TEST_DATA_PATH=${{ env.DNN_MODELS }}" >> $GITHUB_ENV
         else
           echo "Updating DNN models list"
-          echo "OPENCV_DNN_TEST_DATA_PATH=/home/ci/new-dnn-models" >> $GITHUB_ENV && OPENCV_DNN_TEST_DATA_PATH='/home/ci/new-dnn-models'
+          echo "OPENCV_DNN_TEST_DATA_PATH=${{ env.OPENCV_CI_HOME }}/new-dnn-models" >> $GITHUB_ENV && OPENCV_DNN_TEST_DATA_PATH='${{ env.OPENCV_CI_HOME }}/new-dnn-models'
           mkdir -p "$OPENCV_DNN_TEST_DATA_PATH"
           rsync -a --exclude=$DOWNLOAD_MODELS_FILE ${{ env.DNN_MODELS }}/* $OPENCV_DNN_TEST_DATA_PATH
-          cp /opencv_extra/testdata/dnn/download_models.py $OPENCV_DNN_TEST_DATA_PATH/dnn
+          cp opencv_extra/testdata/dnn/download_models.py $OPENCV_DNN_TEST_DATA_PATH/dnn
           cd $OPENCV_DNN_TEST_DATA_PATH/dnn && python3 download_models.py
         fi
       working-directory: ${{ github.workspace }}
