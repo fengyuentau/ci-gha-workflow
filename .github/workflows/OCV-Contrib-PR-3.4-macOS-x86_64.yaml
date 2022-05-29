@@ -10,7 +10,7 @@ on:
 
 env:
   OPENCV_CI_HOME: '/Users/opencv-cn/Workspace/opencv-ci'
-  EXTRA_CMAKE_OPTIONS: '-DBUILD_DOCS=ON -DPYTHON_DEFAULT_EXECUTABLE=/usr/bin/python3 -DOPENCV_DOWNLOAD_PATH=/Users/opencv-cn/Workspace/opencv-ci/binaries_cache -DBUILD_EXAMPLES=ON -DOPENCV_ENABLE_NONFREE=ON'
+  EXTRA_CMAKE_OPTIONS: '-DBUILD_DOCS=ON -DPYTHON_DEFAULT_EXECUTABLE=/usr/bin/python3 -DOPENCV_DOWNLOAD_PATH=/Users/opencv-cn/Workspace/opencv-ci/binaries_cache -DBUILD_EXAMPLES=ON -DOPENCV_ENABLE_NONFREE=ON -DBUILD_ZLIB=OFF'
   PR_AUTHOR: ${{ github.event.pull_request.user.login }}
   PR_AUTHOR_FORK: ${{ github.event.pull_request.head.repo.full_name }}
   SOURCE_BRANCH_NAME: ${{ github.head_ref }}
@@ -104,7 +104,9 @@ jobs:
       working-directory: ${{ github.workspace }}
     - name: Configure OpenCV
       run: |
-        cmake -B build -G Ninja ${{ env.EXTRA_CMAKE_OPTIONS }} -DOPENCV_EXTRA_MODULES_PATH=opencv_extra/modules /opencv
+        export PKG_CONFIG_PATH="/usr/local/opt/ffmpeg@4/lib/pkgconfig"
+        export JAVA_HOME="/usr/local/Cellar/openjdk/15.0.2/libexec/openjdk.jdk/Contents/Home"
+        cmake -B build -G Ninja ${{ env.EXTRA_CMAKE_OPTIONS }} -DOPENCV_EXTRA_MODULES_PATH=opencv_contrib/modules opencv
       working-directory: ${{ github.workspace }}
     - name: Build OpenCV
       run: |
@@ -289,7 +291,7 @@ jobs:
         python3 ./test.py --repo ../../../ -v
       working-directory: ${{ github.workspace }}/opencv/modules/python/test
     - name: Java
-      run: python3 opencv/modules/ts/misc/run.py . -a -t java
+      run: python3 ../opencv/modules/ts/misc/run.py . -a -t java
       working-directory: ${{ github.workspace }}/build
     - name: Save Unit Test Results
       uses: actions/upload-artifact@v3
