@@ -86,6 +86,8 @@ jobs:
       working-directory: ${{ github.workspace }}
     - name: Configure OpenCV
       run: |
+        export PKG_CONFIG_PATH="/usr/local/opt/ffmpeg@4/lib/pkgconfig"
+        export JAVA_HOME="/usr/local/Cellar/openjdk/15.0.2/libexec/openjdk.jdk/Contents/Home"
         cmake -B build -G Ninja ${{ env.EXTRA_CMAKE_OPTIONS }} opencv
       working-directory: ${{ github.workspace }}
     - name: Build OpenCV
@@ -184,7 +186,7 @@ jobs:
         python3 ./test.py --repo ../../../ -v
       working-directory: ${{ github.workspace }}/opencv/modules/python/test
     - name: Java
-      run: python3 opencv/modules/ts/misc/run.py . -a -t java
+      run: python3 ../opencv/modules/ts/misc/run.py . -a -t java
       working-directory: ${{ github.workspace }}/build
     - name: Save Unit Test Results
       uses: actions/upload-artifact@v3
@@ -234,7 +236,6 @@ jobs:
         OPENCV_CONTRIB_FORK=$(git ls-remote --heads "https://github.com/${{ env.PR_AUTHOR }}/opencv_contrib" "${{ env.SOURCE_BRANCH_NAME }}") || true
         if [[ ! -z "$OPENCV_CONTRIB_FORK" ]]; then
           echo "Merge opencv_contrib with ${{ env.SOURCE_BRANCH_NAME }} branch"
-          cd opencv_contrib
           git config user.email "opencv.ci"
           git config user.name "opencv.ci"
           git pull -v "https://github.com/${{ env.PR_AUTHOR }}/opencv_contrib" "${{ env.SOURCE_BRANCH_NAME }}"
